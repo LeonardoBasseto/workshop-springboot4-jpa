@@ -1,7 +1,7 @@
 # Workshop Spring Boot - Sistema de Pedidos
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/LeonardoBasseto/workshop-springboot4-jpa/blob/main/LICENSE)
-[![Java](https://img.shields.io/badge/Java-17-orange)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-25-orange)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.3-brightgreen)](https://spring.io/projects/spring-boot)
 
 ## 📋 Sobre o projeto
 
@@ -53,8 +53,8 @@ O projeto segue o modelo de domínio acima, com as seguintes entidades:
 ## 🛠️ Tecnologias utilizadas
 
 ### Back end
-- Java 17
-- Spring Boot 3.x
+- Java 25
+- Spring Boot 4.0.3
 - JPA / Hibernate
 - Maven
 - Banco de dados H2 (perfil de teste)
@@ -86,7 +86,7 @@ src/
 ## ⚙️ Como executar o projeto
 
 ### Pré-requisitos
-- Java 17+
+- Java 25
 - Maven
 - Git
 
