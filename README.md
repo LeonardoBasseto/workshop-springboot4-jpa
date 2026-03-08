@@ -1,25 +1,24 @@
-# Workshop Spring Boot - Sistema de Pedidos
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/LeonardoBasseto/workshop-springboot4-jpa/blob/main/LICENSE)
+# E-commerce API - Sistema de Pedidos
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/LeonardoBasseto/ecommerce-api/blob/main/LICENSE)
 [![Java](https://img.shields.io/badge/Java-25-orange)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.3-brightgreen)](https://spring.io/projects/spring-boot)
 
-## 📋 Sobre o projeto
+## Sobre o projeto
 
-https://github.com/LeonardoBasseto/workshop-springboot4-jpa
+Uma **API REST** de um sistema de e-commerce desenvolvida em Java com Spring Boot, permitindo o gerenciamento completo de usuários, produtos, categorias, pedidos e pagamentos.
 
-Este é o meu **primeiro projeto** de desenvolvimento Back End em Java, realizado com inspiração no curso **"Java COMPLETO Programação Orientada a Objetos + Projetos"** do professor **Nélio Alves**.
+O projeto foi construído aplicando na prática os conceitos de Programação Orientada a Objetos, JPA/Hibernate e arquitetura em camadas, com foco em organização de código e boas práticas de desenvolvimento backend.
 
-O projeto consiste em uma **API REST** de um sistema de pedidos (e-commerce), onde é possível gerenciar usuários, produtos, categorias, pedidos e pagamentos. Ele foi desenvolvido como um **teste prático** no qual aplico os conhecimentos adquiridos ao longo do curso sobre Programação Orientada a Objetos, JPA/Hibernate, Spring Boot e banco de dados relacional.
+### Anotações de estudo
 
-### 📝 Anotações do projeto
+Durante o desenvolvimento, mantive **anotações detalhadas** explicando o funcionamento do projeto, as principais anotações JPA para mapeamento do banco de dados e os conceitos aplicados em cada etapa.
 
-Juntamente a este projeto, elaborei **anotações detalhadas** onde explico de forma didática o funcionamento do programa, as principais anotações do JPA para mapeamento do banco de dados, e utilizo exemplos em código deste repositório para ilustrar os conceitos.
-
-🔗 **[Acessar anotações do projeto](https://docs.google.com/document/d/1Uk-0X0jMe5xk9MjsqklTJhc8H41YOsBwHTsUfqIsN2A/edit?usp=sharing)**
+🔗 **[Acessar anotações](https://docs.google.com/document/d/1Uk-0X0jMe5xk9MjsqklTJhc8H41YOsBwHTsUfqIsN2A/edit?usp=sharing)**
 
 ---
 
-## 🎯 Funcionalidades
+## Funcionalidades
 
 - [x] CRUD de Usuários
 - [x] Cadastro de Produtos e Categorias
@@ -30,108 +29,102 @@ Juntamente a este projeto, elaborei **anotações detalhadas** onde explico de f
 
 ---
 
-## 🗂️ Modelo Conceitual
+## Modelo Conceitual
 
-<img width="1115" height="457" alt="Image" src="https://github.com/user-attachments/assets/b3b40b6a-51bb-4048-9268-1640584c66d2" />
+**[Clique aqui para ver o Modelo Conceitual](https://github.com/user-attachments/assets/b3b40b6a-51bb-4048-9268-1640584c66d2)**
 
----
-
-O projeto segue o modelo de domínio acima, com as seguintes entidades:
+O domínio da aplicação é composto pelas seguintes entidades:
 
 | Entidade | Descrição |
 |----------|-----------|
-| **User** | Representa o cliente com nome, email, telefone e senha |
-| **Order** | Pedido realizado pelo cliente, com data e status |
-| **OrderItem** | Item do pedido com quantidade e preço |
+| **User** | Cliente com nome, email, telefone e senha |
+| **Order** | Pedido vinculado ao cliente, com data e status |
+| **OrderItem** | Item do pedido com quantidade e preço unitário |
 | **Product** | Produto com nome, descrição, preço e imagem |
 | **Category** | Categoria dos produtos |
-| **Payment** | Pagamento vinculado ao pedido |
+| **Payment** | Pagamento associado ao pedido |
 | **OrderStatus** | Enum com os status: WAITING_PAYMENT, PAID, SHIPPED, DELIVERED, CANCELED |
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
-### Back end
 - Java 25
 - Spring Boot 4.0.3
 - JPA / Hibernate
 - Maven
-- Banco de dados H2 (perfil de teste)
-- Postman (testes de API)
+- H2 Database (perfil de testes)
+- Postman
 
 ---
 
-## 📐 Arquitetura do projeto
+## Arquitetura
 
 ```
 src/
 ├── entities/        # Entidades JPA (User, Order, Product, etc.)
-├── repositories/    # Interfaces de acesso a dados (Spring Data JPA)
-├── services/        # Camada de serviço (regras de negócio)
-├── resources/       # Controllers REST (endpoints da API)
-├── config/          # Configurações (seed do banco de teste)
-└── exceptions/      # Tratamento de exceções personalizado
+├── repositories/    # Interfaces Spring Data JPA
+├── services/        # Regras de negócio
+├── resources/       # Controllers REST
+├── config/          # Configuração e seed de dados
+└── exceptions/      # Exceções customizadas
 ```
 
-### Camadas lógicas
-
 ```
-  Controller  →  Service  →  Repository  →  Database
-  (Resource)     (Business)   (Data Access)   (H2/Postgres)
+Controller  →  Service  →  Repository  →  Database
 ```
 
 ---
 
-## ⚙️ Como executar o projeto
+## Como executar
 
 ### Pré-requisitos
+
 - Java 25
 - Maven
 - Git
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/LeonardoBasseto/workshop-springboot4-jpa
+git clone https://github.com/LeonardoBasseto/ecommerce-api
 
 # Entrar na pasta do projeto
-cd workshop-springboot4-jpa
+cd ecommerce-api
 
-# Executar o projeto
+# Executar
 ./mvnw spring-boot:run
 ```
 
-O servidor será iniciado em `http://localhost:8080`
+Acesse em: `http://localhost:8080`
 
-### 📬 Endpoints principais
+### Endpoints
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
-| GET | /users | Listar todos os usuários |
+| GET | /users | Listar usuários |
 | GET | /users/{id} | Buscar usuário por ID |
-| POST | /users | Criar novo usuário |
+| POST | /users | Criar usuário |
 | PUT | /users/{id} | Atualizar usuário |
 | DELETE | /users/{id} | Deletar usuário |
-| GET | /products | Listar todos os produtos |
-| GET | /categories | Listar todas as categorias |
-| GET | /orders | Listar todos os pedidos |
+| GET | /products | Listar produtos |
+| GET | /categories | Listar categorias |
+| GET | /orders | Listar pedidos |
 | GET | /orders/{id} | Buscar pedido por ID |
 
 ---
 
-## 📚 O que aprendi com este projeto
+## Conceitos aplicados
 
 - Mapeamento objeto-relacional com **JPA/Hibernate**
-- Uso das principais anotações: `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, `@ManyToOne`, `@OneToMany`, `@ManyToMany`, `@JoinTable`
-- Criação de **API REST** com Spring Boot
-- Padrão de camadas (Resource → Service → Repository)
-- **Tratamento de exceções** customizado
-- Seed de dados para testes com perfil H2
+- Anotações: `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, `@ManyToOne`, `@OneToMany`, `@ManyToMany`, `@JoinTable`
+- Arquitetura em camadas (Resource → Service → Repository)
+- Tratamento de exceções customizado
 - Relacionamentos entre entidades (1:N, N:N, 1:1)
+- Seed de dados com perfil H2 para testes
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Leonardo Basseto Rodrigues**
 
